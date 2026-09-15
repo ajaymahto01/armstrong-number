@@ -18,10 +18,12 @@ Since the result equals the original number, `153` is an Armstrong number.
 
 ## Files
 
-- `armstrong.py` — contains the `is_armstrong()` function and a runnable
-  program that checks a user-entered number and lists all Armstrong numbers
-  from 1 to 1000.
-- `test_armstrong.py` — unit tests for `is_armstrong()`.
+- `armstrong.py` — contains two implementations of the Armstrong check
+  (`is_armstrong()`, loop-based, and `is_armstrong_recursive()`,
+  recursion-based) plus a runnable program that checks a user-entered
+  number with both and lists all Armstrong numbers from 1 to 1000.
+- `test_armstrong.py` — unit tests for both implementations, including a
+  test that they always agree with each other.
 
 ## How to run
 
@@ -34,6 +36,7 @@ You'll be prompted to enter a number:
 ```
 Enter a number: 153
 153 is an Armstrong number!
+(recursive check agrees: 153 is an Armstrong number!)
 
 Armstrong numbers between 1 and 1000:
 1 2 3 4 5 6 7 8 9 153 370 371 407
@@ -49,6 +52,20 @@ Armstrong numbers between 1 and 1000:
 
 See the docstring on `is_armstrong()` in `armstrong.py` for the same
 explanation alongside the code.
+
+### The recursive version
+
+`is_armstrong_recursive()` does the same check, but instead of a
+for-loop it uses a recursive helper, `_sum_of_digit_powers()`, to add
+up the powered digits:
+
+- **Base case:** no digits left to add → return `0`.
+- **Recursive case:** raise the first digit to the power, then add
+  the result of solving the same problem for the rest of the digits.
+
+For `153` (power `3`): `1^3 + solve("53")` → `1^3 + (5^3 +
+solve("3"))` → `1^3 + 5^3 + (3^3 + solve(""))` → `1^3 + 5^3 + 3^3 + 0`
+→ `153`.
 
 ## Try it yourself
 
