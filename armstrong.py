@@ -30,7 +30,7 @@ def is_armstrong(number):
     for digit in digits:
         total += int(digit) ** power
 
-    # If the sum we calculated equals the original number, it's an Armstrong number
+    # If the sum equals the original number, it's an Armstrong number
     return total == number
 
 
