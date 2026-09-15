@@ -21,6 +21,7 @@ Since the result equals the original number, `153` is an Armstrong number.
 - `armstrong.py` — contains the `is_armstrong()` function and a runnable
   program that checks a user-entered number and lists all Armstrong numbers
   from 1 to 1000.
+- `test_armstrong.py` — unit tests for `is_armstrong()`.
 
 ## How to run
 
@@ -52,3 +53,26 @@ explanation alongside the code.
 ## Try it yourself
 
 Some Armstrong numbers to test: `1`, `9`, `153`, `370`, `371`, `407`, `9474`.
+
+## Running the tests
+
+Unit tests use Python's built-in `unittest` module — no extra install
+needed. From the project directory, run:
+
+```bash
+python3 -m unittest test_armstrong -v
+```
+
+Expected output:
+
+```
+test_known_armstrong_numbers ... ok
+test_known_non_armstrong_numbers ... ok
+test_returns_a_boolean ... ok
+test_single_digit_numbers_are_armstrong ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+```
